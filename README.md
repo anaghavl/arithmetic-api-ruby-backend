@@ -1,24 +1,38 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Architecture 
 
-Things you may want to cover:
+lib
 
-* Ruby version
 
-* System dependencies
+ -> api
+ 
+ 
+    -> base.rb
+    
+    * The endpoints of the arithmetic APIs are placed in `base.rb` using Roda routing tree.
 
-* Configuration
+ -> schema
+ 
+ 
+    -> input_validator.rb
+    
+    * The logic for validation of input is placed in `input_validator.rb` using dry-validation
+ 
+ spec
+ 
+ 
+  -> base_spec.rb 
+  
+  * Good case tests for the different routes
+  
+  
+  
+  -> input_validator_spec.rb
+  
+  * Bad case tests for each error
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# To Run: 
+bin/rails s
+# To run tests: 
+bundle exec rspec ./path_of_the_file.rb
